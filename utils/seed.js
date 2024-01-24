@@ -17,17 +17,19 @@ const userData = [
   },
 ];
 
-// Sample thought data
-const thoughtData = [
-  {
-    thoughtText: "This is a sample thought.",
-    username: "Disco", // Username of the user who created the thought
-  },
-  {
-    thoughtText: "Another sample thought.",
-    username: "Gumby", // Username of the user who created the thought
-  },
-];
+
+// Could not get seed thought IDs to connect to user, commenting out
+// // Sample thought data
+// const thoughtData = [
+//   {
+//     thoughtText: "This is a sample thought.",
+//     username: "Disco", // Username of the user who created the thought
+//   },
+//   {
+//     thoughtText: "Another sample thought.",
+//     username: "Gumby", // Username of the user who created the thought
+//   },
+// ];
 
 // Function to seed the database
 const seedDatabase = async () => {
@@ -39,14 +41,14 @@ const seedDatabase = async () => {
     // Create users
     const users = await User.create(userData);
 
-    // Update thoughtData with userIds
-    const thoughtsWithUserIds = thoughtData.map((thought, index) => ({
-      ...thought,
-      userId: users[index]._id,
-    }));
+    // // Update thoughtData with userIds
+    // const thoughtsWithUserIds = thoughtData.map((thought, index) => ({
+    //   ...thought,
+    //   userId: users[index]._id,
+    // }));
 
-    // Create thoughts
-    await Thought.create(thoughtsWithUserIds);
+    // // Create thoughts
+    // await Thought.create(thoughtsWithUserIds);
 
     console.log("Seed data inserted successfully.");
   } catch (err) {
